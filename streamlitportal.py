@@ -29,6 +29,8 @@ db = firestore.client()
 global users_ref
 users_ref = db.collection(u'Rover').document(u'DAzzuD2gaf6jHrjP1pTG')
 d = users_ref.get()
+res = d.to_dict()
+print("Hiiiiiiiiii-----------> ",res)
 if d.exists:
     print(f"{d.to_dict()}")
    
@@ -72,8 +74,10 @@ if d.exists:
 # r = bool(input())
 
 # check(f,b,l,r)
-
-
+# if 
+# st.warning('Human Detected')
+if res.get('human')==True:
+    st.warning('This is a warning')
 st.title("Mini Project")
 st.header("Obstacle Detection and Surveillance Rover")
 
